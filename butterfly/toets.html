@@ -1,0 +1,36 @@
+<script>
+"use strict"
+
+class Butterfly {
+  constructor(id, name, weight){
+    this.id = id;
+    this.name = name;
+    this.weight = weight;
+  }
+}
+
+
+let butterfly;
+let butterflies = [];
+
+butterfly = new Butterfly(1, "tijgeroog", 500);
+butterflies.push(butterfly);
+butterfly = new Butterfly(2, "pauwoog", 600);
+butterflies.push(butterfly);
+butterfly = new Butterfly(3, "sneeuwwitje", 300);
+butterflies.push(butterfly);
+
+
+let totalWeight = 0;
+// for(var i = 0; i < butterflies.length; i++ ) {
+for(butterfly of butterflies ) {
+
+  console.log(butterfly.weight);
+
+  // totalWeight += butterfly.weight[i];
+  totalWeight += butterfly.weight;
+
+}
+console.log(totalWeight);
+
+</script>
