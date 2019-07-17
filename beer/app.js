@@ -7,6 +7,7 @@ class Repository {
   }
 
   save(beer) {
+    this.beers.push(beer);
   }
 }
 let beer;
