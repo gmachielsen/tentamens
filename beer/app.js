@@ -1,33 +1,27 @@
 const Beer = require("./beer.js");
 
+class Repository {
+
+  constructor() {
+    this.beers = []
+  }
+
+  save(beer) {
+  }
+}
 let beer;
-let beers = [];
+let repository = new Repository();
 
 beer = new Beer("Hoegaarden", 500);
-beers.push(beer);
+repository.push(beer);
 beer = new Beer("Heineken", 600);
-beers.push(beer);
+repository.push(beer);
 beer = new Beer("Grolsch", 500);
-beers.push(beer);
+repository.push(beer);
 
-for(let i =0; i < beers.length; i++) {
-  console.log(beers[i]);
-}
 
 function zoekbeer(beer) {
     if (beers.name === 'kersen') {
       return error;
     }
-}
-
-class Repository {
-
-  constructor() {
-    this.content = []
-  }
-
-  save(beer) {
-    
-  }
-
 }
