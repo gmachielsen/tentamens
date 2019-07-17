@@ -9,20 +9,21 @@ class Repository {
   save(beer) {
     this.beers.push(beer);
   }
+  findall() {
+    return this.beers;
+  }
 }
 let beer;
 let repository = new Repository();
 
 beer = new Beer("Hoegaarden", 500);
-repository.push(beer);
+repository.save(beer);
 beer = new Beer("Heineken", 600);
-repository.push(beer);
+repository.save(beer);
 beer = new Beer("Grolsch", 500);
-repository.push(beer);
+repository.save(beer);
 
 
-function zoekbeer(beer) {
-    if (beers.name === 'kersen') {
-      return error;
-    }
+for(let beer of repository.findall()) {
+  console.log(beer);
 }
