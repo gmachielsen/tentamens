@@ -46,7 +46,12 @@ app.get("/api/cars/:id", (req, res) => {
   const id = +req.params.id;
   connection.query("SELECT * FROM cars WHERE id = ?", [id], (err, result) => {
     if (err) throw err;
-    res.send(result);
+    if (!result || !result[0]) {
+      res.status(404).end();
+    }else {
+        res.send(result[0]).end();
+    }
+
   });
 });
 
@@ -56,7 +61,25 @@ app.post('/api/cars', function (req, res) {
   const content = req.body;
   connection.query('INSERT INTO cars SET ?', content, (err, result) => {
     if (err) throw err;
-    res.send(result)
+    connection.query('SELECT * FROM cars WHERE id = ?', result.insertId, (newErr, newCar) => {
+      if (err) throw err
+      // console.log(content);
+
+      res.send(newCar);
+    //
+    // console.log(result.resultId);
+    //
+    //
+    // /* Dan gebruik je het resultId als id om de car op te vragen via
+    // en dan return je die gevonden cars
+    //
+    // select * from cars where id=insertId;
+    //
+    // en dat result dan returnen!
+    //
+    // //
+    // res.send(content);
+    });
   });
   // console.log(content);
   // res.send(content);
