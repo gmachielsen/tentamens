@@ -58,8 +58,11 @@ function initDataTable() {
           xhttp.onreadystatechange = () => {
             if (xhttp.readyState === 4 && xhttp.status === 200) {
               const jsonResult = JSON.parse(xhttp.responseText);
-
+              $("#bootId1").val(jsonResult.id);
               $("#naamboot1").val(jsonResult.naamboot);
+              $("#capaciteit1").val(jsonResult.capacity);
+              $("#beschikbaar1").val(jsonResult.beschikbaar);
+
               // document.getElementById('naamboot1').value=jsonResult.naamboot;
 
               $('#modalDeleteAndUpdate').modal('show');
